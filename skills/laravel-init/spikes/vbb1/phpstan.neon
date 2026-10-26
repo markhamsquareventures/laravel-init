@@ -1,0 +1,627 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/nesbot/carbon/extension.neon
+    - vendor/spaze/phpstan-disallowed-calls/extension.neon
+
+parameters:
+    paths:
+        - app/
+        - bootstrap/app.php
+        - config/
+        - database/
+        - routes/
+        - tests/
+
+    level: 8
+    filesRootDir: %rootDir%/../../..
+    disallowedMethodCalls:
+        -
+            method: 'Illuminate\Database\Eloquent\Model::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::save()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::push()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceDelete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::restore()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::fill()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceFill()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::touch()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::updateOrCreate()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::updateQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::saveQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::pushQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::deleteQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceDeleteQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::restoreQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::incrementQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::decrementQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::touchQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::forceDelete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::upsert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::updateOrCreate()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::insert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::upsert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::forceDelete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::updateOrCreate()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::upsert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::insert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+    disallowedStaticCalls:
+        -
+            method: 'Illuminate\Database\Eloquent\Model::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::save()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::push()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceDelete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::restore()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::fill()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceFill()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::touch()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::updateOrCreate()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::updateQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::saveQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::pushQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::deleteQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceDeleteQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::restoreQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::incrementQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::decrementQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::touchQuietly()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::forceDelete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::upsert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::updateOrCreate()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::insert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::upsert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::update()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::delete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::forceDelete()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::increment()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::decrement()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::updateOrCreate()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::upsert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\Relation::insert()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::destroy()'
+            message: 'use an action, not a direct write'
+            allowIn: 
+                - app/Models/*
+                - database/*
+                - tests/*

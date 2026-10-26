@@ -1,0 +1,10 @@
+{
+  "name": "laravel-init",
+  "description": "Set up a Laravel 13 + Inertia + React project so that its coding rules are checks that fail the build.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Nick Basile"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/markhamsquareventures/laravel-init"
+}

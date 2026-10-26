@@ -1,0 +1,15 @@
+app/Providers/AppServiceProvider.php .. 100%
+app/Providers/FortifyServiceProvider.php .. 100%
+app/Models/User.php .. 100%
+app/Http/Middleware/HandleInertiaRequests.php .. 100%
+app/Http/Middleware/HandleAppearance.php .. 100%
+app/Http/Requests/Settings/ProfileDeleteRequest.php .. 100%
+app/Http/Requests/Settings/ProfileUpdateRequest.php .. 100%
+app/Http/Requests/Settings/PasswordUpdateRequest.php .. 100%
+app/Http/Requests/Settings/TwoFactorAuthenticationRequest.php .. 100%
+app/Http/Controllers/Settings/SecurityController.php .. pa30 75%
+app/Http/Controllers/Settings/ProfileController.php .. 100%
+app/Http/Controllers/Controller.php .. 100%
+app/Actions/Fortify/ResetUserPassword.php .. 100%
+app/Actions/Fortify/CreateNewUser.php .. 100%
+ERROR Type coverage below expected: 100.0%, currently 98.2%

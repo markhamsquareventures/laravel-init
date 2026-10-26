@@ -1,0 +1,14 @@
+{
+  "name": "laravel-init",
+  "owner": {
+    "name": "Nick Basile"
+  },
+  "plugins": [
+    {
+      "name": "laravel-init",
+      "description": "Set up a Laravel 13 + Inertia + React project so that its coding rules are checks that fail the build.",
+      "version": "1.2.0",
+      "source": "./"
+    }
+  ]
+}

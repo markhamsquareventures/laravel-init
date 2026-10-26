@@ -1,0 +1,38 @@
+{
+    "_comment": "Merge these keys into composer.json scripts. Keep the starter's other scripts. Add post-update-cmd boost:update after the starter's vendor:publish line.",
+    "gate": [
+        "Composer\\Config::disableProcessTimeout",
+        "pint --dirty --format agent",
+        "@types:check",
+        "pnpm types:check",
+        "pnpm check:fix",
+        "pnpm knip",
+        "pnpm build",
+        "@php artisan test --compact",
+        "@types:coverage"
+    ],
+    "ci:check": [
+        "Composer\\Config::disableProcessTimeout",
+        "pnpm run check",
+        "pnpm run types:check",
+        "pnpm knip",
+        "@test"
+    ],
+    "types:check": [
+        "phpstan analyse"
+    ],
+    "types:coverage": [
+        "pest --type-coverage --compact --min=100"
+    ],
+    "test": [
+        "@php artisan config:clear --ansi",
+        "@lint:check",
+        "@types:check",
+        "@types:coverage",
+        "@php artisan test"
+    ],
+    "post-update-cmd": [
+        "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+        "@php artisan boost:update --ansi"
+    ]
+}

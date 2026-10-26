@@ -1,0 +1,375 @@
+## RUN A: plugins [typescript,unicorn,oxc,react,jsx-a11y] (no eslint), probe file
+resources/js/pages/spike-probe.tsx:5:5: error eslint(no-restricted-globals): Unexpected use of 'setInterval'. Use a hook instead of setInterval. help: Use a local variable or function parameter instead of the restricted global.
+resources/js/pages/spike-probe.tsx:4:11: error eslint(no-unused-vars): Variable 'unused' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+resources/js/pages/spike-probe.tsx:6:5: error eslint(no-restricted-properties): 'window.setInterval' is restricted from being used. help: Use a hook instead of window.setInterval.
+resources/js/pages/spike-probe.tsx:8:9: warning jsx-a11y(click-events-have-key-events): Enforce a clickable non-interactive element has at least one keyboard event listener. help: Visible, non-interactive elements with click handlers must have one of `keyup`, `keydown`, or `keypress` listener.
+resources/js/pages/spike-probe.tsx:8:10: error jsx-a11y(no-static-element-interactions): Static HTML elements with event handlers require a role. help: Add a role attribute to this element, or use a semantic HTML element instead.
+resources/js/pages/spike-probe.tsx:9:13: error jsx-a11y(alt-text): Missing `alt` attribute. help: Must have `alt` prop, either with meaningful text, or an empty string for decorative images.
+resources/js/pages/spike-probe.tsx:11:13: error jsx-a11y(label-has-associated-control): A form label must be associated with a control. help: Either give the label a `htmlFor` attribute with the id of the associated control, or wrap the label around the control.
+resources/js/pages/spike-probe.tsx:13:22: error react(forbid-dom-props): No prefetch on DOM.
+resources/js/pages/spike-probe.tsx:14:50: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/spike-probe.tsx:15:28: error react(forbid-component-props): Do not set prefetch on Link.
+EXIT=
+
+## RUN B: plugins + 'eslint', probe file
+resources/js/pages/spike-probe.tsx:5:5: error eslint(no-restricted-globals): Unexpected use of 'setInterval'. Use a hook instead of setInterval. help: Use a local variable or function parameter instead of the restricted global.
+resources/js/pages/spike-probe.tsx:4:11: error eslint(no-unused-vars): Variable 'unused' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+resources/js/pages/spike-probe.tsx:6:5: error eslint(no-restricted-properties): 'window.setInterval' is restricted from being used. help: Use a hook instead of window.setInterval.
+resources/js/pages/spike-probe.tsx:8:9: warning jsx-a11y(click-events-have-key-events): Enforce a clickable non-interactive element has at least one keyboard event listener. help: Visible, non-interactive elements with click handlers must have one of `keyup`, `keydown`, or `keypress` listener.
+resources/js/pages/spike-probe.tsx:8:10: error jsx-a11y(no-static-element-interactions): Static HTML elements with event handlers require a role. help: Add a role attribute to this element, or use a semantic HTML element instead.
+resources/js/pages/spike-probe.tsx:9:13: error jsx-a11y(alt-text): Missing `alt` attribute. help: Must have `alt` prop, either with meaningful text, or an empty string for decorative images.
+resources/js/pages/spike-probe.tsx:11:13: error jsx-a11y(label-has-associated-control): A form label must be associated with a control. help: Either give the label a `htmlFor` attribute with the id of the associated control, or wrap the label around the control.
+resources/js/pages/spike-probe.tsx:13:22: error react(forbid-dom-props): No prefetch on DOM.
+resources/js/pages/spike-probe.tsx:14:50: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/spike-probe.tsx:15:28: error react(forbid-component-props): Do not set prefetch on Link.
+EXIT=
+
+## RUN C: plugins ['react'] only
+resources/js/pages/spike-probe.tsx:4:11: error eslint(no-unused-vars): Variable 'unused' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+
+## RUN D: probe removed, vp check (stock starter, new config)
+note: You are running `vp check` as a Vite+ built-in command. If you meant to run the check npm script, use `vpr check` instead.
+error: Formatting issues found
+vite.config.ts (4ms)
+
+Found formatting issues in 1 file (853ms, 10 threads). Run `vp check --fix` to fix them.
+EXIT=
+
+## RUN E: after fmt of vite.config.ts, vp check
+note: You are running `vp check` as a Vite+ built-in command. If you meant to run the check npm script, use `vpr check` instead.
+pass: All 70 files are correctly formatted (704ms, 10 threads)
+error: Lint issues found
+⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/forgot-password.tsx:34:37]
+ 33 │                                     autoComplete="off"
+ 34 │                                     autoFocus
+    ·                                     ─────────
+ 35 │                                     placeholder="email@example.com"
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/reset-password.tsx:52:33]
+ 51 │                                 className="mt-1 block w-full"
+ 52 │                                 autoFocus
+    ·                                 ─────────
+ 53 │                                 placeholder="Password"
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/register.tsx:35:37]
+ 34 │                                     required
+ 35 │                                     autoFocus
+    ·                                     ─────────
+ 36 │                                     tabIndex={1}
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/register.tsx:36:37]
+ 35 │                                     autoFocus
+ 36 │                                     tabIndex={1}
+    ·                                     ────────────
+ 37 │                                     autoComplete="name"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/register.tsx:53:37]
+ 52 │                                     required
+ 53 │                                     tabIndex={2}
+    ·                                     ────────────
+ 54 │                                     autoComplete="email"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/register.tsx:66:37]
+ 65 │                                     required
+ 66 │                                     tabIndex={3}
+    ·                                     ────────────
+ 67 │                                     autoComplete="new-password"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/register.tsx:82:37]
+ 81 │                                     required
+ 82 │                                     tabIndex={4}
+    ·                                     ────────────
+ 83 │                                     autoComplete="new-password"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/register.tsx:96:33]
+ 95 │                                 className="mt-2 w-full"
+ 96 │                                 tabIndex={5}
+    ·                                 ────────────
+ 97 │                                 data-test="register-user-button"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+     ╭─[resources/js/pages/auth/register.tsx:106:54]
+ 105 │                             Already have an account?{' '}
+ 106 │                             <TextLink href={login()} tabIndex={6}>
+     ·                                                      ────────────
+ 107 │                                 Log in
+     ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  × react(forbid-component-props): Do not set prefetch on Link.
+    ╭─[resources/js/components/user-menu-content.tsx:40:25]
+ 39 │                         href={edit()}
+ 40 │                         prefetch
+    ·                         ────────
+ 41 │                         onClick={cleanup}
+    ╰────
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/two-factor-challenge.tsx:71:41]
+ 70 │                                         placeholder="Enter recovery code"
+ 71 │                                         autoFocus={showRecoveryInput}
+    ·                                         ─────────────────────────────
+ 72 │                                         required
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/two-factor-challenge.tsx:88:45]
+ 87 │                                             pattern={REGEXP_ONLY_DIGITS}
+ 88 │                                             autoFocus
+    ·                                             ─────────
+ 89 │                                         >
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  × react(forbid-component-props): Do not set prefetch on Link.
+    ╭─[resources/js/components/nav-main.tsx:26:52]
+ 25 │                         >
+ 26 │                             <Link href={item.href} prefetch>
+    ·                                                    ────────
+ 27 │                                 {item.icon && <item.icon />}
+    ╰────
+
+  × react(forbid-component-props): Do not set prefetch on Link.
+     ╭─[resources/js/components/app-header.tsx:139:25]
+ 138 │                         href={dashboard()}
+ 139 │                         prefetch
+     ·                         ────────
+ 140 │                         className="flex items-center space-x-2"
+     ╰────
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/confirm-password.tsx:39:33]
+ 38 │                                 autoComplete="current-password"
+ 39 │                                 autoFocus
+    ·                                 ─────────
+ 40 │                             />
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/components/passkey-register.tsx:89:21]
+ 88 │                     className="mt-1 block w-full border-foreground/20"
+ 89 │                     autoFocus
+    ·                     ─────────
+ 90 │                 />
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  × react(forbid-component-props): Do not set prefetch on Link.
+    ╭─[resources/js/components/app-sidebar.tsx:47:54]
+ 46 │                         <SidebarMenuButton size="lg" asChild>
+ 47 │                             <Link href={dashboard()} prefetch>
+    ·                                                      ────────
+ 48 │                                 <AppLogo />
+    ╰────
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+    ╭─[resources/js/pages/auth/login.tsx:42:37]
+ 41 │                                     required
+ 42 │                                     autoFocus
+    ·                                     ─────────
+ 43 │                                     tabIndex={1}
+    ╰────
+  help: Remove the `autoFocus` attribute.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/login.tsx:43:37]
+ 42 │                                     autoFocus
+ 43 │                                     tabIndex={1}
+    ·                                     ────────────
+ 44 │                                     autoComplete="email"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/login.tsx:57:45]
+ 56 │                                             className="ml-auto text-sm"
+ 57 │                                             tabIndex={5}
+    ·                                             ────────────
+ 58 │                                         >
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/login.tsx:67:37]
+ 66 │                                     required
+ 67 │                                     tabIndex={2}
+    ·                                     ────────────
+ 68 │                                     autoComplete="current-password"
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/login.tsx:78:37]
+ 77 │                                     name="remember"
+ 78 │                                     tabIndex={3}
+    ·                                     ────────────
+ 79 │                                 />
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/login.tsx:86:33]
+ 85 │                                 className="mt-4 w-full"
+ 86 │                                 tabIndex={4}
+    ·                                 ────────────
+ 87 │                                 disabled={processing}
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`.
+    ╭─[resources/js/pages/auth/login.tsx:97:57]
+ 96 │                             Don't have an account?{' '}
+ 97 │                             <TextLink href={register()} tabIndex={5}>
+    ·                                                         ────────────
+ 98 │                                 Sign up
+    ╰────
+  help: Change the `tabIndex` prop to a non-positive value.
+
+  ⚠ jsx-a11y(prefer-tag-over-role): Prefer `menu, ol, ul` over `role` attribute `list`.
+     ╭─[resources/js/components/two-factor-recovery-codes.tsx:114:37]
+ 113 │                                     className="grid gap-1 rounded-lg bg-muted p-4 font-mono text-sm"
+ 114 │                                     role="list"
+     ·                                     ───────────
+ 115 │                                     aria-label="Recovery codes"
+     ╰────
+  help: Replace HTML elements with `role` attribute `list` to corresponding semantic HTML tag `menu, ol, ul`.
+
+  ⚠ jsx-a11y(prefer-tag-over-role): Prefer `li` over `role` attribute `listitem`.
+     ╭─[resources/js/components/two-factor-recovery-codes.tsx:121:49]
+ 120 │                                                 key={index}
+ 121 │                                                 role="listitem"
+     ·                                                 ───────────────
+ 122 │                                                 className="select-text"
+     ╰────
+  help: Replace HTML elements with `role` attribute `listitem` to corresponding semantic HTML tag `li`.
+
+  ⚠ jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users.
+     ╭─[resources/js/components/two-factor-setup-modal.tsx:184:33]
+ 183 │                                 pattern={REGEXP_ONLY_DIGITS}
+ 184 │                                 autoFocus
+     ·                                 ─────────
+ 185 │                             >
+     ╰────
+  help: Remove the `autoFocus` attribute.
+
+  × react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations
+    ╭─[resources/js/pages/welcome.tsx:61:52]
+ 60 │                                             href="https://laravel.com/docs"
+ 61 │                                             target="_blank"
+    ·                                                    ────────
+ 62 │                                             className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
+    ╰────
+  help: add rel=`noreferrer` to the element
+
+  × react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations
+    ╭─[resources/js/pages/welcome.tsx:92:52]
+ 91 │                                             href="https://laracasts.com"
+ 92 │                                             target="_blank"
+    ·                                                    ────────
+ 93 │                                             className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
+    ╰────
+  help: add rel=`noreferrer` to the element
+
+  × react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations
+     ╭─[resources/js/pages/welcome.tsx:118:48]
+ 117 │                                         href="https://cloud.laravel.com"
+ 118 │                                         target="_blank"
+     ·                                                ────────
+ 119 │                                         className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
+     ╰────
+  help: add rel=`noreferrer` to the element
+
+Found 7 errors and 23 warnings in 64 files (725ms, 10 threads)
+EXIT=
+## RUN F: vp lint
+resources/js/pages/auth/login.tsx:42:37: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/login.tsx:43:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:57:45: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:67:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:78:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:86:33: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:97:57: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/confirm-password.tsx:39:33: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/register.tsx:35:37: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/register.tsx:36:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:53:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:66:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:82:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:96:33: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:106:54: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/components/nav-main.tsx:26:52: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/components/user-menu-content.tsx:40:25: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/components/app-sidebar.tsx:47:54: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/pages/welcome.tsx:61:52: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/welcome.tsx:92:52: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/welcome.tsx:118:48: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/auth/two-factor-challenge.tsx:71:41: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/two-factor-challenge.tsx:88:45: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/forgot-password.tsx:34:37: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/components/passkey-register.tsx:89:21: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/reset-password.tsx:52:33: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/components/two-factor-setup-modal.tsx:184:33: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/components/app-header.tsx:139:25: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/components/two-factor-recovery-codes.tsx:114:37: warning jsx-a11y(prefer-tag-over-role): Prefer `menu, ol, ul` over `role` attribute `list`. help: Replace HTML elements with `role` attribute `list` to corresponding semantic HTML tag `menu, ol, ul`.
+resources/js/components/two-factor-recovery-codes.tsx:121:49: warning jsx-a11y(prefer-tag-over-role): Prefer `li` over `role` attribute `listitem`. help: Replace HTML elements with `role` attribute `listitem` to corresponding semantic HTML tag `li`.
+EXIT=
+
+## RUN G: stock starter, vp lint, full output with new config (exit 1)
+resources/js/components/passkey-register.tsx:89:21: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/components/nav-main.tsx:26:52: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/components/app-header.tsx:139:25: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/pages/auth/register.tsx:35:37: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/register.tsx:36:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:53:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:66:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:82:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:96:33: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/register.tsx:106:54: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/components/app-sidebar.tsx:47:54: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/pages/auth/forgot-password.tsx:34:37: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/components/two-factor-recovery-codes.tsx:114:37: warning jsx-a11y(prefer-tag-over-role): Prefer `menu, ol, ul` over `role` attribute `list`. help: Replace HTML elements with `role` attribute `list` to corresponding semantic HTML tag `menu, ol, ul`.
+resources/js/components/two-factor-recovery-codes.tsx:121:49: warning jsx-a11y(prefer-tag-over-role): Prefer `li` over `role` attribute `listitem`. help: Replace HTML elements with `role` attribute `listitem` to corresponding semantic HTML tag `li`.
+resources/js/pages/auth/two-factor-challenge.tsx:71:41: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/two-factor-challenge.tsx:88:45: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/welcome.tsx:61:52: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/welcome.tsx:92:52: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/welcome.tsx:118:48: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/auth/reset-password.tsx:52:33: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/confirm-password.tsx:39:33: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/login.tsx:42:37: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/pages/auth/login.tsx:43:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:57:45: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:67:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:78:37: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:86:33: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/pages/auth/login.tsx:97:57: warning jsx-a11y(tabindex-no-positive): Avoid positive integer values for `tabIndex`. help: Change the `tabIndex` prop to a non-positive value.
+resources/js/components/two-factor-setup-modal.tsx:184:33: warning jsx-a11y(no-autofocus): The `autoFocus` attribute is found here, which can cause usability issues for sighted and non-sighted users. help: Remove the `autoFocus` attribute.
+resources/js/components/user-menu-content.tsx:40:25: error react(forbid-component-props): Do not set prefetch on Link.
+
+## RUN H: no plugins key, rules jsx-a11y/alt-text enabled, probe <img> without alt

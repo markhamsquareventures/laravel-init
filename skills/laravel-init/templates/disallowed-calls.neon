@@ -1,0 +1,632 @@
+# Enforces: writes to existing records happen only inside app/Models.
+# Source of truth: the laravel-init skill, templates/disallowed-calls.neon
+# The App\Models\* entries catch a model that overrides a write method, because
+# disallowed-calls matches on the class that declares the method.
+# Use single backslashes in single-quoted NEON strings.
+parameters:
+    filesRootDir: %rootDir%/../../..
+    disallowedMethodCalls:
+        -
+            method: 'Illuminate\Database\Eloquent\Model::update()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::updateQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::updateOrFail()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::save()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::saveQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::saveOrFail()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::push()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::pushQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::delete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::deleteQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::deleteOrFail()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceDelete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceDeleteQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::fill()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::forceFill()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::increment()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::decrement()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::incrementQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::decrementQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::touch()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Model::touchQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\SoftDeletes::restore()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\SoftDeletes::restoreQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\SoftDeletes::forceDelete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\SoftDeletes::forceDeleteQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::update()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::updateOrCreate()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::upsert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::delete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::forceDelete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insertOrIgnore()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insertGetId()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::increment()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::decrement()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::incrementEach()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::decrementEach()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::touch()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Relations\HasOneOrMany::updateOrCreate()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::update()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::updateOrInsert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::upsert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::delete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::insert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::insertOrIgnore()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::insertGetId()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::insertUsing()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::increment()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::decrement()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::incrementEach()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::decrementEach()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Query\Builder::truncate()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::update()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::updateQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::updateOrFail()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::save()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::saveQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::saveOrFail()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::push()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::pushQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::delete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::deleteQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::deleteOrFail()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::forceDelete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::forceDeleteQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::fill()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::forceFill()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::increment()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::decrement()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::incrementQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::decrementQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::touch()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::touchQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::restore()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'App\Models\*::restoreQuietly()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+    disallowedStaticCalls:
+        -
+            method: 'Illuminate\Database\Eloquent\Model::destroy()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::update()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::updateOrCreate()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::upsert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::delete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::forceDelete()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insert()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insertOrIgnore()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::insertGetId()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::increment()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::decrement()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::incrementEach()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::decrementEach()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*
+        -
+            method: 'Illuminate\Database\Eloquent\Builder::touch()'
+            message: 'writes to an existing record live on the model. Add a named method to the model (for example $meeting->cancel()) and call that'
+            allowIn:
+                - app/Models/*
+                - database/*
+                - tests/*

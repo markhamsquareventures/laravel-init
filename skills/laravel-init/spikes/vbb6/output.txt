@@ -1,0 +1,81 @@
+## RUN 1: versions
+vp v1.0.0
+
+Local vite-plus:
+  vite-plus  v1.0.0
+
+Tools:
+  vite             v8.3.1
+  rolldown         v1.2.11
+  vitest           v5.0.1
+  oxfmt            v0.70.0
+  oxlint           v1.85.0
+  oxlint-tsgolint  v7.0.2003
+  tsdown           v0.23.0
+
+Version: 1.85.0
+
+## RUN 2: vp build BEFORE vp migrate (overrides vite@* and vitest@* by hand, still fails)
+error: Failed to resolve vite command: GenericFailure, Expected @voidzero-dev/vite-plus-core@1.0.0, but found vite@8.3.2 ... Run `vp migrate` to align the Vite alias, then run `vp install`.
+BUILD_EXIT=1
+## RUN 3: vp migrate --no-interactive --no-agent --no-editor --no-hooks
+Updated . to Vite+ 1.0.0; vite 8.3.2 -> 8.3.1; Dependencies installed
+## RUN 4: vp build after migrate
+public/build/assets/wayfinder-BVYKZwv4.js                      348.49 kB │ gzip: 109.02 kB
+
+✓ built in 2.96s
+BUILD_EXIT=0
+## RUN 5: vp check after migrate (stock starter)
+note: You are running `vp check` as a Vite+ built-in command. If you meant to run the check npm script, use `vpr check` instead.
+pass: All 71 files are correctly formatted (569ms, 10 threads)
+error: Lint issues found
+× shadcn(no-arbitrary-values): "transition-[width,height]" hardcodes an off-token value. Use a theme token or scale value instead.
+Found 206 errors and 23 warnings in 64 files (2.0s, 10 threads)
+CHECK_EXIT=1
+   9 jsx-a11y(no-autofocus)
+   2 jsx-a11y(prefer-tag-over-role)
+  12 jsx-a11y(tabindex-no-positive)
+   4 react(forbid-component-props)
+   3 react(jsx-no-target-blank)
+  92 shadcn(no-arbitrary-values)
+   1 shadcn(no-inline-styles)
+  54 shadcn(no-raw-colors)
+  52 shadcn(no-restyle)
+## RUN 6: probe (vp lint resources/js/pages/spike-probe.tsx)
+resources/js/pages/spike-probe.tsx:6:5: error eslint(no-restricted-globals): Unexpected use of 'setInterval'. Use a hook instead of setInterval. help: Use a local variable or function parameter instead of the restricted global.
+resources/js/pages/spike-probe.tsx:5:11: error eslint(no-unused-vars): Variable 'unused' is declared but never used. Unused variables should start with a '_'. help: Consider removing this declaration.
+resources/js/pages/spike-probe.tsx:7:5: error eslint(no-restricted-properties): 'window.setInterval' is restricted from being used. help: Use a hook instead of window.setInterval.
+resources/js/pages/spike-probe.tsx:9:9: warning jsx-a11y(click-events-have-key-events): Enforce a clickable non-interactive element has at least one keyboard event listener. help: Visible, non-interactive elements with click handlers must have one of `keyup`, `keydown`, or `keypress` listener.
+resources/js/pages/spike-probe.tsx:9:10: error jsx-a11y(no-static-element-interactions): Static HTML elements with event handlers require a role. help: Add a role attribute to this element, or use a semantic HTML element instead.
+resources/js/pages/spike-probe.tsx:10:13: error jsx-a11y(alt-text): Missing `alt` attribute. help: Must have `alt` prop, either with meaningful text, or an empty string for decorative images.
+resources/js/pages/spike-probe.tsx:11:13: error jsx-a11y(label-has-associated-control): A form label must be associated with a control. help: Either give the label a `htmlFor` attribute with the id of the associated control, or wrap the label around the control.
+resources/js/pages/spike-probe.tsx:13:22: error react(forbid-dom-props): No prefetch on DOM.
+resources/js/pages/spike-probe.tsx:14:50: error react(jsx-no-target-blank): Using target=`_blank` without rel=`noreferrer` (which implies rel=`noopener`) is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations help: add rel=`noreferrer` to the element
+resources/js/pages/spike-probe.tsx:15:29: error react(forbid-component-props): Do not set prefetch on Link.
+resources/js/pages/spike-probe.tsx:16:28: error shadcn(no-arbitrary-values): "bg-[#ff0000]" hardcodes a color. Nearest theme tokens: bg-destructive, bg-chart-1. Use one of those, or declare --color-<name> in resources/css/app.css.
+resources/js/pages/spike-probe.tsx:16:28: error shadcn(no-arbitrary-values): "p-[13px]" hardcodes an off-token value. Use "p-3.25" instead (same value, on the scale).
+resources/js/pages/spike-probe.tsx:16:28: error shadcn(no-unknown-classes): "rounded-huge" is not a class this project's Tailwind knows, so no CSS is generated for it. Fix the spelling, or declare it with @utility in resources/css/app.css.
+resources/js/pages/spike-probe.tsx:17:34: error shadcn(no-inline-styles): Inline style sets color. Style through classes; use CSS custom properties for dynamic values.
+resources/js/pages/spike-probe.tsx:18:31: error shadcn(no-restyle): "bg-red-500" is not allowed on <Button>: <Button> owns its color. Use a variant: default, destructive, outline, secondary, ghost, link. Add a new variant in resources/js/components/ui/button.tsx only if the design explicitly calls for a treatment none of these provides.
+resources/js/pages/spike-probe.tsx:18:31: error shadcn(no-raw-colors): "bg-red-500" uses the raw Tailwind palette. Nearest theme tokens: bg-destructive, bg-chart-1. Use one of those, or declare --color-<name> in resources/css/app.css for a new color.
+resources/js/pages/spike-probe.tsx:19:32: error shadcn(require-static-classes): Dynamically built className on <Button> cannot be checked. Use static class strings.
+## RUN 7: all 35 jsx-a11y rules at error on bare input/textarea/select/button
+spikeprobe2/p.tsx:8:13: error jsx-a11y(control-has-associated-label): A control must be associated with a text label. (only the empty <button>; no diagnostic for input, textarea, select)
+## RUN 8: knip 6.39.0 with vbb5/knip.json (control appended)
+Unused files (4)
+resources/js/components/app-header.tsx         
+resources/js/layouts/app/app-header-layout.tsx 
+resources/js/layouts/auth/auth-card-layout.tsx 
+resources/js/layouts/auth/auth-split-layout.tsx
+Unused dependencies (1)
+concurrently  package.json:36:10
+Unlisted dependencies (1)
+@inertiajs/core  resources/js/components/passkey-verify.tsx:1:36
+Unused exports (1)
+neverImportedSpikeFn  function  resources/js/lib/utils.ts:14:17
+Unused exported types (2)
+TwoFactorSetupData  type  resources/js/types/auth.ts:25:13
+TwoFactorSecretKey  type  resources/js/types/auth.ts:30:13
+Configuration hints (1)
+.css    knip.json  Compiled extension excluded by project (imports not followed)
+KNIP_EXIT=1

@@ -1,0 +1,9 @@
+{
+    "$schema": "https://unpkg.com/knip@6/schema.json",
+    "entry": [
+        "resources/js/pages/**/*.{ts,tsx}",
+        "resources/js/components/ui/**/*.{ts,tsx}"
+    ],
+    "project": ["resources/js/**/*.{ts,tsx}"],
+    "ignoreExportsUsedInFile": true
+}

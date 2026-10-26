@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Runs a command with the agent env unset, and removes ANSI color codes.
+env -u AI_AGENT -u CLAUDECODE -u CLAUDE_CODE_ENTRYPOINT "$@" 2>&1 | sed 's/\x1b\[[0-9;]*m//g'
+exit "${PIPESTATUS[0]}"

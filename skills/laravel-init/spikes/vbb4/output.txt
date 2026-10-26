@@ -1,0 +1,18 @@
+## Run 1: stock starter, level 8, tests/ included, rules.neon included, no ignore
+(new lines compared with the 47-error baseline; identifier from --error-format=json)
+app/Actions/Fortify/ResetUserPassword.php:19:Unused App\Actions\Fortify\ResetUserPassword::reset  [shipmonk.deadMethod]
+
+## Run 2: negative control (unused private + unused public on User, Pest helper class)
+app/Actions/Fortify/ResetUserPassword.php 19 Unused App\Actions\Fortify\ResetUserPassword::reset shipmonk.deadMethod
+app/Models/User.php 51 Unused App\Models\User::deadPrivate shipmonk.deadMethod
+app/Models/User.php 56 Unused App\Models\User::deadPublic shipmonk.deadMethod
+tests/Support/PestHelper.php 12 Unused Tests\Support\PestHelper::neverUsed shipmonk.deadMethod
+(usedInClosure and the dataset() method used by ->with() were NOT reported)
+
+## Run 3: ignoreErrors entry for ResetUserPassword::reset added (see phpstan.neon)
+Controls removed. New lines versus baseline: none. Totals: errors 0, file_errors 47 (equal to the baseline).
+
+## nitpick
+phpstan tests/Scenarios: [OK] No errors
+pest --type-coverage --min=100: ERROR Type coverage below expected: 100.0%, currently 98.2%
+  (cause: app/Http/Controllers/Settings/SecurityController.php .. pa30 75%, a starter closure param; tests/Scenarios is not in the coverage source)

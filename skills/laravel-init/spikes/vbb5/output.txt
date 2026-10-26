@@ -1,0 +1,164 @@
+## RUN 1: knip, no config
+Unused files (46)
+resources/js/components/alert-error.tsx              
+resources/js/components/app-header.tsx               
+resources/js/components/appearance-tabs.tsx          
+resources/js/components/delete-user.tsx              
+resources/js/components/input-error.tsx              
+resources/js/components/manage-passkeys.tsx          
+resources/js/components/manage-two-factor.tsx        
+resources/js/components/passkey-item.tsx             
+resources/js/components/passkey-register.tsx         
+resources/js/components/passkey-verify.tsx           
+resources/js/components/password-input.tsx           
+resources/js/components/text-link.tsx                
+resources/js/components/two-factor-recovery-codes.tsx
+resources/js/components/two-factor-setup-modal.tsx   
+resources/js/components/ui/alert.tsx                 
+resources/js/components/ui/badge.tsx                 
+resources/js/components/ui/card.tsx                  
+resources/js/components/ui/checkbox.tsx              
+resources/js/components/ui/collapsible.tsx           
+resources/js/components/ui/dialog.tsx                
+resources/js/components/ui/icon.tsx                  
+resources/js/components/ui/input-otp.tsx             
+resources/js/components/ui/label.tsx                 
+resources/js/components/ui/navigation-menu.tsx       
+resources/js/components/ui/placeholder-pattern.tsx   
+resources/js/components/ui/select.tsx                
+resources/js/components/ui/spinner.tsx               
+resources/js/components/ui/toggle-group.tsx          
+resources/js/components/ui/toggle.tsx                
+resources/js/hooks/use-clipboard.ts                  
+resources/js/hooks/use-two-factor-auth.ts            
+resources/js/layouts/app/app-header-layout.tsx       
+resources/js/layouts/auth/auth-card-layout.tsx       
+resources/js/layouts/auth/auth-split-layout.tsx      
+resources/js/pages/auth/confirm-password.tsx         
+resources/js/pages/auth/forgot-password.tsx          
+resources/js/pages/auth/login.tsx                    
+resources/js/pages/auth/register.tsx                 
+resources/js/pages/auth/reset-password.tsx           
+resources/js/pages/auth/two-factor-challenge.tsx     
+resources/js/pages/auth/verify-email.tsx             
+resources/js/pages/dashboard.tsx                     
+resources/js/pages/settings/appearance.tsx           
+resources/js/pages/settings/profile.tsx              
+resources/js/pages/settings/security.tsx             
+resources/js/pages/welcome.tsx                       
+Unused dependencies (10)
+@laravel/passkeys                package.json:16:10
+@radix-ui/react-checkbox         package.json:18:10
+@radix-ui/react-collapsible      package.json:19:10
+@radix-ui/react-label            package.json:22:10
+@radix-ui/react-navigation-menu  package.json:23:10
+@radix-ui/react-select           package.json:24:10
+@radix-ui/react-toggle           package.json:27:10
+@radix-ui/react-toggle-group     package.json:28:10
+concurrently                     package.json:36:10
+input-otp                        package.json:37:10
+Unused exports (23)
+BreadcrumbEllipsis        resources/js/components/ui/breadcrumb.tsx:108:3   
+buttonVariants            resources/js/components/ui/button.tsx:58:18       
+DropdownMenuPortal        resources/js/components/ui/dropdown-menu.tsx:241:3
+DropdownMenuCheckboxItem  resources/js/components/ui/dropdown-menu.tsx:247:3
+DropdownMenuRadioGroup    resources/js/components/ui/dropdown-menu.tsx:248:3
+DropdownMenuRadioItem     resources/js/components/ui/dropdown-menu.tsx:249:3
+DropdownMenuShortcut      resources/js/components/ui/dropdown-menu.tsx:251:3
+DropdownMenuSub           resources/js/components/ui/dropdown-menu.tsx:252:3
+DropdownMenuSubTrigger    resources/js/components/ui/dropdown-menu.tsx:253:3
+DropdownMenuSubContent    resources/js/components/ui/dropdown-menu.tsx:254:3
+SheetTrigger              resources/js/components/ui/sheet.tsx:130:3        
+SheetClose                resources/js/components/ui/sheet.tsx:131:3        
+SheetFooter               resources/js/components/ui/sheet.tsx:134:3        
+SidebarGroupAction        resources/js/components/ui/sidebar.tsx:699:3      
+SidebarInput              resources/js/components/ui/sidebar.tsx:703:3      
+SidebarMenuAction         resources/js/components/ui/sidebar.tsx:706:3      
+SidebarMenuBadge          resources/js/components/ui/sidebar.tsx:707:3      
+SidebarMenuSkeleton       resources/js/components/ui/sidebar.tsx:710:3      
+SidebarMenuSub            resources/js/components/ui/sidebar.tsx:711:3      
+SidebarMenuSubButton      resources/js/components/ui/sidebar.tsx:712:3      
+SidebarMenuSubItem        resources/js/components/ui/sidebar.tsx:713:3      
+SidebarRail               resources/js/components/ui/sidebar.tsx:715:3      
+SidebarSeparator          resources/js/components/ui/sidebar.tsx:716:3      
+Unused exported types (8)
+ResolvedAppearance      type  resources/js/hooks/use-appearance.tsx:3:13 
+Appearance              type  resources/js/hooks/use-appearance.tsx:4:13 
+IsCurrentUrlFn          type  resources/js/hooks/use-current-url.ts:5:13 
+IsCurrentOrParentUrlFn  type  resources/js/hooks/use-current-url.ts:11:13
+WhenCurrentUrlFn        type  resources/js/hooks/use-current-url.ts:16:13
+Passkey                 type  resources/js/types/auth.ts:17:13           
+TwoFactorSetupData      type  resources/js/types/auth.ts:25:13           
+TwoFactorSecretKey      type  resources/js/types/auth.ts:30:13           
+Configuration hints (1)
+. (root)    .  Create knip.json configuration file, and add entry and/or refine project files (46 unused files)
+EXIT=1
+
+## RUN 2: knip.json v1 (entry pages+app, ignore ui + wayfinder)
+Unused files (4)
+resources/js/components/app-header.tsx         
+resources/js/layouts/app/app-header-layout.tsx 
+resources/js/layouts/auth/auth-card-layout.tsx 
+resources/js/layouts/auth/auth-split-layout.tsx
+Unused dependencies (6)
+@radix-ui/react-collapsible      package.json:19:10
+@radix-ui/react-navigation-menu  package.json:23:10
+@radix-ui/react-select           package.json:24:10
+@radix-ui/react-toggle           package.json:27:10
+@radix-ui/react-toggle-group     package.json:28:10
+concurrently                     package.json:36:10
+Unlisted dependencies (1)
+@inertiajs/core  resources/js/components/passkey-verify.tsx:1:36
+Unused exported types (8)
+ResolvedAppearance      type  resources/js/hooks/use-appearance.tsx:3:13 
+CopiedValue             type  resources/js/hooks/use-clipboard.ts:4:13   
+CopyFn                  type  resources/js/hooks/use-clipboard.ts:5:13   
+IsCurrentUrlFn          type  resources/js/hooks/use-current-url.ts:5:13 
+IsCurrentOrParentUrlFn  type  resources/js/hooks/use-current-url.ts:11:13
+WhenCurrentUrlFn        type  resources/js/hooks/use-current-url.ts:16:13
+TwoFactorSetupData      type  resources/js/types/auth.ts:25:13           
+TwoFactorSecretKey      type  resources/js/types/auth.ts:30:13           
+Configuration hints (5)
+resources/js/actions/**      knip.json  Remove from ignore                                           
+resources/js/routes/**       knip.json  Remove from ignore                                           
+resources/js/wayfinder/**    knip.json  Remove from ignore                                           
+resources/js/app.tsx         knip.json  Remove redundant entry pattern                               
+.css                         knip.json  Compiled extension excluded by project (imports not followed)
+EXIT=1
+
+## RUN 3: knip.json v2 (ui as entry, ignoreDependencies concurrently)
+Unused files (4)
+resources/js/components/app-header.tsx         
+resources/js/layouts/app/app-header-layout.tsx 
+resources/js/layouts/auth/auth-card-layout.tsx 
+resources/js/layouts/auth/auth-split-layout.tsx
+Unlisted dependencies (1)
+@inertiajs/core  resources/js/components/passkey-verify.tsx:1:36
+Unused exported types (2)
+TwoFactorSetupData  type  resources/js/types/auth.ts:25:13
+TwoFactorSecretKey  type  resources/js/types/auth.ts:30:13
+Configuration hints (4)
+resources/js/actions/**      knip.json  Remove from ignore                                           
+resources/js/routes/**       knip.json  Remove from ignore                                           
+resources/js/wayfinder/**    knip.json  Remove from ignore                                           
+.css                         knip.json  Compiled extension excluded by project (imports not followed)
+EXIT=1
+
+## RUN 4: final knip.json + negative control (neverImportedSpikeFn appended to lib/utils.ts)
+Unused files (4)
+resources/js/components/app-header.tsx         
+resources/js/layouts/app/app-header-layout.tsx 
+resources/js/layouts/auth/auth-card-layout.tsx 
+resources/js/layouts/auth/auth-split-layout.tsx
+Unused dependencies (1)
+concurrently  package.json:36:10
+Unlisted dependencies (1)
+@inertiajs/core  resources/js/components/passkey-verify.tsx:1:36
+Unused exports (1)
+neverImportedSpikeFn  function  resources/js/lib/utils.ts:13:17
+Unused exported types (2)
+TwoFactorSetupData  type  resources/js/types/auth.ts:25:13
+TwoFactorSecretKey  type  resources/js/types/auth.ts:30:13
+Configuration hints (1)
+.css    knip.json  Compiled extension excluded by project (imports not followed)
+EXIT=1
